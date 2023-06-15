@@ -1,0 +1,80 @@
+body{
+    background: linear-gradient(to right,black,rgb(76, 74, 74),black);
+}
+.layout{
+    border-radius: 40px;
+    margin-top: 10vh;
+    margin-left: 15vw;
+    width: 70vw;
+    height: 80vh;
+    background: url('../images/storm.jpg');
+    background-repeat: no-repeat;
+    background-size:cover ;
+    box-shadow:inset -2px -2px 20px white;
+    filter: brightness(140%);
+}
+.content{
+    border: 2px solid white;
+    border-radius:0 30px 30px 0 ;
+}
+.side{
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    opacity: 0.9;
+    border: 2px solid white;
+    border-right: 0;
+    color:white;
+    border-radius: 30px 0 0 30px ;
+}
+.display{
+    margin-top: 7vh;
+    display: grid;
+    gap: 1.5rem;
+}
+.card{
+    background: transparent;
+    margin-left: 1vw;
+    width: 14vw;
+    height: 30vh;
+}
+.input{
+    width: 14.5vw;
+    margin-left: 2vh
+}
+.rdisplay{
+    margin-top: 10vh;
+}
+.rcard{
+    background: transparent;
+    margin-left: 1vw;
+    width: 14vw;
+    height: 30vh;
+}
+.r2card{
+    margin-top: -15vh;
+    background: transparent;
+    margin-left: 1vw;
+    width: 14vw;
+    height: 30vh;
+}
+.r3card{
+    margin-top: -46vh;
+    background: transparent;
+    margin-left: 26vw;
+    width: 30vw;
+    height: 30vh;
+}
+.r4card{
+    margin-top: -20vh;
+    background: transparent;
+    margin-left: 26vw;
+    width: 30vw;
+    height: 30vh;
+}
+.r5card{
+    margin-top: -20vh;
+    background: transparent;
+    margin-left: 26vw;
+    width: 30vw;
+    height: 30vh;
+}

@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useEffect, useState } from "react";
+import Service from "./services/service";
+import { Layout } from 'antd';
+import './styles/content.css'
+import LeftDisplay from './components/LeftDisplay';
+import RightDisplay from './components/RightDisplay';
 
-function App() {
+export const Context=createContext('')
+const App=()=> {
+  const [data, setdata] = useState('')
+  const loc=(x,y)=>{
+    console.log(x,y)
+    Service(x,y).then((a)=>{
+      setdata(a)
+    })
+  }
+  useEffect(()=>{
+    let lat=0,lon=0;
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((pos)=>{
+        lat=pos.coords.latitude
+        lon=pos.coords.longitude
+        Service(lat,lon).then((x)=>{
+          setdata(x)
+        })
+      })
+    }
+},[])
+  const {Sider,Content}=Layout
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='container'>
+    <Context.Provider value={data}>
+    <Layout className='layout'>
+      <Sider width='315' className='side' style={{background:"transparent",textAlign:'center'}}>
+      <LeftDisplay loc={loc}></LeftDisplay>
+      </Sider>
+      <Content className='content'>
+        <RightDisplay></RightDisplay>
+      </Content>
+    </Layout>
+    </Context.Provider>
     </div>
+    </>
   );
 }
 
